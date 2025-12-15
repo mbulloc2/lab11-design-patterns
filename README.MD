@@ -13,16 +13,21 @@ From the <module> sample.py (line 35),
 to the main method in sample.py (line 29), 
 to the run_anonymizer method in the sample.py (line 13)
 to the anonymize method in AnonymizerEngine Class (line 104)
-[complete the call stack here]
+to the _operate() method in EngineBase
+to the create_operator_class() method in OperatorsFactory
+which leads to line 133 in operators_factory.py where the operator is selected from the dictionary using the operator name
 ```
 
 * How many if/elif branches are used in selecting the operator?
-*Put your answer here*
+Zero.
 
 * What data structure (a Python data type) exactly is used to select the operator?
-*Put your answer here*
+A dictionary (dict) mapping operator names (strings) to operator classes.
 
 * Explain how "Strategy" design pattern is reflected here.
+This code demonstrates the Strategy pattern by allowing the anonymization behavior to be selected at runtime.
+Each anonymizer implements the same Operator interface but performs a different strategy for anonymization.
+The AnonymizerEngine does not need to know how each operator works. It just requests the appropriate strategy from the OperatorsFactory, which selects and returns the correct operator based on a string key. Which makes the system flexible, extensible, and easy to add new anonymization strategies without modifying the engine logic.
 
 
 ---
