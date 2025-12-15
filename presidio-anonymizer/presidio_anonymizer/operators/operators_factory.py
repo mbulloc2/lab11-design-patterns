@@ -1,6 +1,7 @@
 import logging
 from typing import Dict, Type
 
+from presidio_anonymizer.operators.initial import Initial
 from presidio_anonymizer.entities import InvalidParamError
 from presidio_anonymizer.operators import (
     AHDS_AVAILABLE,
