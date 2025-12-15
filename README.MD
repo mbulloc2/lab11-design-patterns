@@ -22,7 +22,7 @@ which leads to line 133 in operators_factory.py where the operator is selected f
 Zero.
 
 * What data structure (a Python data type) exactly is used to select the operator?
-A dictionary (dict) mapping operator names (strings) to operator classes.
+A dictionary mapping operator names to operator classes.
 
 * Explain how "Strategy" design pattern is reflected here.
 This code demonstrates the Strategy pattern by allowing the anonymization behavior to be selected at runtime.
