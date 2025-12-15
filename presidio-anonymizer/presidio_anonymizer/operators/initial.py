@@ -4,7 +4,15 @@ from presidio_anonymizer.operators import OperatorType
 
 class Initial(Operator):
     def operate(self, text: str, params=None) -> str:
-        return text
+        parts = text.split()
+        initials = []
+
+        for part in parts:
+            if part:
+                initials.append(part[0].upper() + ".")
+
+        return " ".join(initials)
+
 
     def operator_name(self) -> str:
         return "initial"
