@@ -12,6 +12,8 @@ from presidio_anonymizer.entities import (
     RecognizerResult,
 )
 from presidio_anonymizer.operators import Operator, OperatorType
+from presidio_anonymizer.operators.initial import Initial
+
 
 DEFAULT = "replace"
 
@@ -25,6 +27,9 @@ class AnonymizerEngine(EngineBase):
     Handles the entire logic of the Presidio-anonymizer. Gets the original text
     and replaces the PII entities with the desired anonymizers.
     """
+    def __init__(self):
+        super().__init__()
+        self.add_anonymizer(Initial)
 
     def anonymize(
         self,
